@@ -15,7 +15,7 @@ public class CommentController {
     }
 
     @PostMapping("/posts/comment/{postId}")
-    public void CommentController(@RequestBody NewCommentDto newCommentDto, @RequestParam String postId) {
+    public void newComment(@RequestBody NewCommentDto newCommentDto, @PathVariable String postId) {
         commentService.addComment(postId, newCommentDto);
     }
 }

@@ -18,7 +18,7 @@ public class CommentService {
         this.postRepository = postRepository;
     }
 
-    public void addComment(String postId, NewCommentDto newCommentDto) throws EntityNotFoundException{
+    public void addComment(String postId, NewCommentDto newCommentDto) {
         Optional<Post> post = postRepository.findById(postId);
 
         if (post.isPresent()) {
