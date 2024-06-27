@@ -2,12 +2,14 @@ package com.pedrosessions.blogapp.model.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import org.springframework.data.mongodb.core.mapping.FieldType;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Post {
-    @Id
+    @MongoId(FieldType.OBJECT_ID)
     private String id;
     private String title;
     private String content;
@@ -16,6 +18,9 @@ public class Post {
     private List<Comment> comments;
     private LocalDateTime creationDate;
 
+    public String getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;

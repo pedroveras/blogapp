@@ -5,12 +5,12 @@ import com.pedrosessions.blogapp.model.dto.NewPostDto;
 import com.pedrosessions.blogapp.model.dto.PostResponseDto;
 import com.pedrosessions.blogapp.model.entity.Post;
 import com.pedrosessions.blogapp.model.mapper.PostMapper;
-import com.pedrosessions.blogapp.model.mapper.PostMapperImpl;
 import com.pedrosessions.blogapp.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class PostService {

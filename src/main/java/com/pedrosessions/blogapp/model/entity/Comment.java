@@ -1,16 +1,28 @@
 package com.pedrosessions.blogapp.model.entity;
 
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
+import org.springframework.data.mongodb.core.mapping.FieldType;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDateTime;
 
 public class Comment {
+    @MongoId(FieldType.OBJECT_ID)
+    private String id;
     private String author;
     private String content;
     private LocalDateTime creationDate;
 
     @DocumentReference
     private Post post;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getAuthor() {
         return author;

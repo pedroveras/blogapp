@@ -6,7 +6,6 @@ import com.pedrosessions.blogapp.service.PostService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +15,7 @@ import java.util.List;
 @RequestMapping("/v1/posts")
 public class PostController {
 
-    private PostService postService;
+    private final PostService postService;
 
     public PostController(PostService postService) {
         this.postService = postService;
