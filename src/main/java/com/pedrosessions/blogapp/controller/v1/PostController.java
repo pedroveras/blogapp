@@ -1,5 +1,7 @@
 package com.pedrosessions.blogapp.controller.v1;
 
+import com.pedrosessions.blogapp.controller.v1.util.ApiResponseUtil;
+import com.pedrosessions.blogapp.model.dto.ApiResponse;
 import com.pedrosessions.blogapp.model.dto.NewPostDto;
 import com.pedrosessions.blogapp.model.dto.PostResponseDto;
 import com.pedrosessions.blogapp.service.PostService;
@@ -27,12 +29,12 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public void getPost(@NotBlank @PathVariable String postId) {
-        postService.getSinglePost(postId);
+    public ResponseEntity<ApiResponse<PostResponseDto>> getPost(@NotBlank @PathVariable String postId) {
+        return ResponseEntity.ok(ApiResponseUtil.success(postService.getSinglePost(postId)));
     }
 
     @GetMapping
-    public ResponseEntity<List<PostResponseDto>> getPosts() {
-        return new ResponseEntity<>(postService.getPosts(), HttpStatus.OK);
+    public ResponseEntity<ApiResponse<List<PostResponseDto>>> getPosts() {
+        return ResponseEntity.ok(ApiResponseUtil.success(postService.getPosts()));
     }
 }

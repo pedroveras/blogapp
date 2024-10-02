@@ -27,11 +27,11 @@ public class PostService {
         postRepository.save(newPostDto.toPost());
     }
 
-    public Post getSinglePost(String postId) {
+    public PostResponseDto getSinglePost(String postId) {
         Optional<Post> post = postRepository.findById(postId);
 
         if (post.isPresent())
-            return post.get();
+            return postMapper.postToPostResponseDto(post.get());
 
         throw new EntityNotFoundException("Post not found!");
     }
